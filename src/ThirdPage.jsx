@@ -22,6 +22,9 @@ const ThirdPage = () => {
   const isDesktop = window.innerWidth >= 768;
 
   const handleScroll = () => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
+
     lefttoright.start({
       x: [-100, 0],
       transition: { ease: "easeInOut", yoyo: Infinity, duration: 2 },
@@ -63,7 +66,10 @@ const ThirdPage = () => {
   useEffect(() => {
    
       setupHoverEffect(".card3d");
-    
+      
+      const isDesktop = window.innerWidth >= 768;
+      if (!isDesktop) return;
+  
 
     window.addEventListener("scroll", handleScroll);
     return () => {
