@@ -11,6 +11,9 @@ const Experience = () => {
   const bouncerev = useAnimation();
 
   const handleScroll = () => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
+    
     lefttoright.start({
       x: [-100, 0],
       transition: { ease: "easeInOut", yoyo: Infinity, duration: 2 },
@@ -60,6 +63,9 @@ const Experience = () => {
   };
 
   useEffect(() => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -68,6 +74,8 @@ const Experience = () => {
 
   React.useEffect(() => {
     // Start the animation when the component mounts
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
 
     ud.start({
       y: [-50, 0], // Up to Down
