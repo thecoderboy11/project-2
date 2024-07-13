@@ -7,11 +7,12 @@ import Flutter from "./logo/Flutter";
 import AWS from "./logo/AWS";
 import R from "./logo/R";
 import Git from "./logo/Git";
+import Java from "./logo/Java";
 
 import "./App.css";
 import React, { useEffect } from "react";
 import Texture from "./Texture";
-import Java from "./logo/Java";
+
 const SecondPage = () => {
   const updown = useAnimation();
   const du = useAnimation();
@@ -22,6 +23,9 @@ const SecondPage = () => {
   const bouncerev = useAnimation();
 
   const handleScroll = () => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
+
     lefttoright.start({
       x: [-100, 0],
       transition: { ease: "easeInOut", yoyo: Infinity, duration: 2 },
@@ -43,7 +47,7 @@ const SecondPage = () => {
     });
 
     ud.start({
-      y: [-50, 0],  // Up to Down
+      y: [-50, 0], // Up to Down
       transition: {
         ease: "easeInOut",
         yoyo: Infinity,
@@ -52,13 +56,14 @@ const SecondPage = () => {
     });
 
     du.start({
-      y: [50, 0],  // Down to Up
+      y: [50, 0], // Down to Up
       transition: {
         ease: "easeInOut",
         yoyo: Infinity,
         duration: 1,
       },
     });
+
     bounce.start({
       y: [0, -100, 0, -80, 0, -60, 0, -40, 0, -20, 0],
       transition: { yoyo: Infinity, duration: 4, ease: "easeInOut" },
@@ -71,17 +76,21 @@ const SecondPage = () => {
   };
 
   useEffect(() => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lefttoright]);
 
-  React.useEffect(() => {
-    // Start the animation when the component mounts
+  useEffect(() => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
 
     ud.start({
-      y: [-50, 0],  // Up to Down
+      y: [-50, 0], // Up to Down
       transition: {
         ease: "easeInOut",
         yoyo: Infinity,
@@ -90,13 +99,14 @@ const SecondPage = () => {
     });
 
     du.start({
-      y: [50, 0],  // Down to Up
+      y: [50, 0], // Down to Up
       transition: {
         ease: "easeInOut",
         yoyo: Infinity,
         duration: 1,
       },
     });
+
     lefttoright.start({
       x: [-100, 0],
       transition: { ease: "easeInOut", yoyo: Infinity, duration: 2 },
@@ -128,11 +138,9 @@ const SecondPage = () => {
     });
   }, [updown]);
 
-
   return (
     <div className="relative py-20 bg-custom">
-
-<div className="absolute w-[100%] h-[100%] opacity-10">
+      <div className="absolute w-[100%] h-[100%] opacity-10">
         <Texture />
       </div>
 
@@ -151,164 +159,126 @@ const SecondPage = () => {
       </div>
 
       {/* skills cards */}
-
       <div className="ml-4 mr-4 md:ml-[5%] md:mr[5%] md:mx-0 mx-auto mt-10 md:mt-28 gap-4 md:gap-16 flex flex-wrap justify-center items-center">
-        
-        <div
-       
-        className="borderhovereffect2   hover:rotate-12 transition ease-in-out innermorphic  relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
-
-          <motion.div
-          animate={ud}
-          
-          className="absolute md:top-4 top-1">
-            
+        <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
+          <motion.div animate={ud} className="absolute md:top-4 top-1">
             <Python />
           </motion.div>
 
           <motion.div
-           animate={du}
-           className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px]  flex justify-center items-starttext-lg md:text-3xl font-medium md:font-semibold">
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] flex justify-center items-starttext-lg md:text-3xl font-medium md:font-semibold"
+          >
             Python
           </motion.div>
         </div>
 
-        <div
-       
-       className="borderhovereffect2   hover:rotate-12 transition ease-in-out innermorphic  relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
+        <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
+          <motion.div animate={ud} className="absolute md:top-10 top-4">
+            <Java />
+          </motion.div>
 
-         <motion.div
-         animate={ud}
-         
-         className="absolute md:top-10 top-4">
-           
-           <Java />
-         </motion.div>
-
-         <motion.div
-          animate={du}
-          className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px]  flex justify-center items-starttext-lg md:text-3xl font-medium md:font-semibold">
-           Java
-         </motion.div>
-       </div>
-
-        <div className="borderhovereffect2  hover:rotate-12 transition ease-in-out innermorphic  relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
-          
           <motion.div
-          animate={ud}
-           className="absolute md:top-14 top-3 object-contain">
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] flex justify-center items-starttext-lg md:text-3xl font-medium md:font-semibold"
+          >
+            Java
+          </motion.div>
+        </div>
+
+        <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
+          <motion.div
+            animate={ud}
+            className="absolute md:top-14 top-3 object-contain"
+          >
             <Flutter />
           </motion.div>
 
           <motion.div
-          animate={du}
-          className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px]  flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold">
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold"
+          >
             Flutter
           </motion.div>
-
         </div>
 
-        <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic  relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
-
-          <motion.div 
-          animate={ud}
-          className="absolute md:top-14 top-3 object-contain">
-            <JS/>
+        <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
+          <motion.div animate={ud} className="absolute md:top-14 top-3 object-contain">
+            <JS />
           </motion.div>
 
-          <motion.div 
-           animate={du}
-          className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold">
+          <motion.div
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold"
+          >
             JavaScript
           </motion.div>
-
         </div>
 
-       
-
         <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic hover:bg-[#9f851e] relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
-
-          <motion.div 
-          animate={ud}
-          className="absolute md:top-14 top-6 object-contain">
-            <AWS/>
+          <motion.div animate={ud} className="absolute md:top-14 top-6 object-contain">
+            <AWS />
           </motion.div>
 
           <motion.div
-           animate={du}
-          className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold">
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold"
+          >
             AWS
           </motion.div>
-
-        </div>
-
-        <div className="borderhovereffect2  hover:rotate-12 transition ease-in-out innermorphic hover:bg-[#9f851e] relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
-         
-          <motion.div
-          animate={ud}
-          className="absolute md:top-1 top-2 object-contain">
-            <MongoDB/>
-          </motion.div>
-
-          <motion.div
-           animate={du}
-          className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold">
-          MongoDB
-          </motion.div>
-
         </div>
 
         <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic hover:bg-[#9f851e] relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
-         
-          <motion.div 
-          animate={ud}
-          className="absolute md:top-8 top-5 object-contain">
-            <R/>
+          <motion.div animate={ud} className="absolute md:top-1 top-2 object-contain">
+            <MongoDB />
           </motion.div>
 
           <motion.div
-           animate={du}
-          className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold">
-          ReactJS
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold"
+          >
+            MongoDB
           </motion.div>
-
         </div>
 
-        <div
-       
-       className="borderhovereffect2   hover:rotate-12 transition ease-in-out innermorphic  relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
-
-         <motion.div
-         animate={ud}
-         
-         className="absolute md:top-4 top-4">
-           
-           <NextJs/>
-         </motion.div>
-
-         <motion.div
-          animate={du}
-          className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px]  flex justify-center items-starttext-lg md:text-3xl font-medium md:font-semibold">
-           NextJS
-         </motion.div>
-       </div>
-
-        <div className="borderhovereffect2  hover:rotate-12 transition ease-in-out innermorphic hover:bg-[#9f851e] relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
-          
-          <motion.div
-          animate={ud}
-          className="absolute md:top-8 top-5 object-contain">
-            <Git/>
+        <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic hover:bg-[#9f851e] relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
+          <motion.div animate={ud} className="absolute md:top-8 top-5 object-contain">
+            <R />
           </motion.div>
 
           <motion.div
-          animate={du}
-          className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold">
-          Git
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold"
+          >
+            ReactJS
           </motion.div>
-          
         </div>
 
+        <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
+          <motion.div animate={ud} className="absolute md:top-4 top-4">
+            <NextJs />
+          </motion.div>
+
+          <motion.div
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] flex justify-center items-starttext-lg md:text-3xl font-medium md:font-semibold"
+          >
+            NextJS
+          </motion.div>
+        </div>
+
+        <div className="borderhovereffect2 hover:rotate-12 transition ease-in-out innermorphic hover:bg-[#9f851e] relative bg-[#4d4c4c] w-[100px] h-[100px] md:w-[300px] md:h-[300px] flex flex-col justify-center items-center rounded-2xl">
+          <motion.div animate={ud} className="absolute md:top-8 top-5 object-contain">
+            <Git />
+          </motion.div>
+
+          <motion.div
+            animate={du}
+            className="absolute bottom-1 md:bottom-16 w-[90px] md:w-[250px] text-white flex justify-center items-start text-lg md:text-3xl font-medium md:font-semibold"
+          >
+            Git
+          </motion.div>
+        </div>
       </div>
     </div>
   );
