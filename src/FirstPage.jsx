@@ -19,7 +19,7 @@ const FirstPage = () => {
   const handleScroll = () => {
     const isDesktop = window.innerWidth >= 768;
     if (!isDesktop) return;
-    
+
     scrollani.start({
       x: [0, -50, 50, -50, 0],
       transition: { ease: "easeInOut", yoyo: Infinity, duration: 4 },
@@ -48,6 +48,9 @@ const FirstPage = () => {
 
   useEffect(() => {
     setupHoverEffect(".card3d");
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -55,6 +58,9 @@ const FirstPage = () => {
   }, [scrollani]);
 
   useEffect(() => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
+
     scrollani.start({
       x: [0, -50, 50, -50, 0],
       transition: { yoyo: Infinity, duration: 4 },
