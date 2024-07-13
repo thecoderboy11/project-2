@@ -17,6 +17,9 @@ const FirstPage = () => {
   const bouncerev = useAnimation();
 
   const handleScroll = () => {
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop) return;
+    
     scrollani.start({
       x: [0, -50, 50, -50, 0],
       transition: { ease: "easeInOut", yoyo: Infinity, duration: 4 },
