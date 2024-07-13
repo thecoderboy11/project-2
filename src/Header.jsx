@@ -24,7 +24,7 @@ const Header = ({ scrollToFirstPage, scrollToSecondPage, scrollToThirdPage,scrol
 
     btd.start({
       y:[-100,60,0],
-      transition:{ease:"easeInOut", duration:1.2}
+      transition:{ease:"easeInOut", duration:2}
     })
   };
 

@@ -130,76 +130,7 @@ const SecondPage = () => {
     updown.start({
       y: [0, 50, 0],
       transition: {
-        duration: 2,import { motion, useAnimation } from "framer-motion";
-import Python from "./logo/Python";
-import JS from "./logo/JS";
-import NextJs from "./logo/NextJs";
-import MongoDB from "./logo/MongoDB";
-import Flutter from "./logo/Flutter";
-import AWS from "./logo/AWS";
-import R from "./logo/R";
-import Git from "./logo/Git";
-import Java from "./logo/Java";
-
-import "./App.css";
-import React, { useEffect } from "react";
-import Texture from "./Texture";
-
-const SecondPage = () => {
-  const updown = useAnimation();
-  const du = useAnimation();
-  const ud = useAnimation();
-  const lefttoright = useAnimation();
-  const righttoleft = useAnimation();
-  const bounce = useAnimation();
-  const bouncerev = useAnimation();
-
-  const handleScroll = () => {
-    const isDesktop = window.innerWidth >= 768;
-    if (!isDesktop) return;
-
-    lefttoright.start({
-      x: [-100, 0],
-      transition: { ease: "easeInOut", yoyo: Infinity, duration: 2 },
-    });
-
-    righttoleft.start({
-      x: [100, 0],
-      transition: { ease: "easeInOut", yoyo: Infinity, duration: 2 },
-    });
-
-    updown.start({
-      y: [0, 50, 0],
-      transition: {
         duration: 2,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "loop",
-      },
-    });
-
-    ud.start({
-      y: [-50, 0], // Up to Down
-      transition: {
-        ease: "easeInOut",
-        yoyo: Infinity,
-        duration: 1,
-      },
-    });
-
-    du.start({
-      y: [50, 0], // Down to Up
-      transition: {
-        ease: "easeInOut",
-        yoyo: Infinity,
-        duration: 1,
-      },
-    });
-
-    bounce.start({
-      y: [0, -100, 0, -80, 0, -60, 0, -40, 0, -20, 0],
-      transition: { yoyo: Infinity, duration: 4, ease: "easeInOut" },
-
         ease: "easeInOut",
         repeat: Infinity,
         repeatType: "loop",
@@ -207,11 +138,16 @@ const SecondPage = () => {
     });
   }, [updown]);
 
+  const isDesktop = window.innerWidth >= 768;
+  
+
   return (
     <div className="relative py-20 bg-custom">
-      <div className="absolute w-[100%] h-[100%] opacity-10">
-        <Texture />
-      </div>
+       {
+      isDesktop &&  <div className=" absolute w-[100%] h-[100%] opacity-10">
+      <Texture />
+    </div>
+     }
 
       <div>
         <motion.h1

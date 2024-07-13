@@ -129,9 +129,11 @@ const ThirdPage = () => {
 
   return (
     <div className="relative py-20 bg-custom">
-      <div className="absolute w-[100%] h-[100%] opacity-10">
-        <Texture />
-      </div>
+       {
+      isDesktop &&  <div className=" absolute w-[100%] h-[100%] opacity-10">
+      <Texture />
+    </div>
+     }
 
       <div>
         <div>

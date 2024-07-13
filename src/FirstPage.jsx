@@ -15,6 +15,7 @@ const FirstPage = () => {
   const scrollani = useAnimation();
   const bounce = useAnimation();
   const bouncerev = useAnimation();
+  const isDesktop = window.innerWidth >= 768;
 
   const handleScroll = () => {
     const isDesktop = window.innerWidth >= 768;
@@ -85,9 +86,13 @@ const FirstPage = () => {
   return (
     <div className="relative py-10 bg-custom overflow-hidden md:h-screen">
       
-      <div className="absolute w-[100%] h-[100%] opacity-10">
-        <Texture />
-      </div>
+      
+     {
+      isDesktop &&  <div className=" absolute w-[100%] h-[100%] opacity-10">
+      <Texture />
+    </div>
+     }
+
 
       <div className="relative mt-20 md:mt-52 md:flex justify-evenly md:gap-5 ">
 

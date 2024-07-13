@@ -9,6 +9,7 @@ const Experience = () => {
   const righttoleft = useAnimation();
   const bounce = useAnimation();
   const bouncerev = useAnimation();
+  const isDesktop = window.innerWidth >= 768;
 
   const handleScroll = () => {
     const isDesktop = window.innerWidth >= 768;
@@ -132,9 +133,12 @@ const Experience = () => {
 
       <div className="relative">
 
-      <div className="absolute w-[100%] h-[100%] opacity-10">
-        <Texture />
-      </div>
+      {
+      isDesktop &&  <div className=" absolute w-[100%] h-[100%] opacity-10">
+      <Texture />
+    </div>
+     }
+
 
 
         <div>
