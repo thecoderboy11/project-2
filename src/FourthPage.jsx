@@ -36,7 +36,7 @@ const FourthPage = () => {
             <div className=" text-4xl md:text-6xl text-white   flex justify-center items-center  ">
               <MdOutlineMailOutline />
               <div className="text-2xl md:text-4xl ml-3 text-yellow-700">
-                thecoderboy@gmail.com
+                thecoderboy111@gmail.com
               </div>
             </div>
           </div>
@@ -45,7 +45,7 @@ const FourthPage = () => {
             <div className=" text-4xl md:text-6xl text-white  flex justify-center items-center  ">
               <IoCallOutline />
               <div className="text-2xl md:text-4xl ml-3 text-yellow-700">
-                (201) 9238493
+                (201)-XXXXXXXXX
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ const FourthPage = () => {
             <div className=" text-4xl md:text-6xl text-white   flex justify-center items-center  ">
               <CiLocationOn />
               <div className="text-2xl md:text-4xl ml-3 text-yellow-700">
-                Vormir, USA
+                Planet Earth
               </div>
             </div>
           </div>
